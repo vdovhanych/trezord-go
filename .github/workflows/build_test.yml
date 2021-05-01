@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build_app:
+    runs-on: ubuntu-latest
+    container: karalabe/xgo-latest
+    steps:
+      - run: |
+          go get github.com/karalabe/xgo
+          cd release/linux
+          make all
+        name: Run in container
